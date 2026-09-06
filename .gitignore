@@ -111,6 +111,13 @@
 *.pem
 *.key
 
+# SQLite
+*.db
+*.db-journal
+
+# Next.js
+**/.next/
+
 # Temporary files
 *.tmp
 *.temp

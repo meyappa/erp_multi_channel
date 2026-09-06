@@ -1,0 +1,18 @@
+services:
+  api:
+    build: ./backend
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_URL: sqlite+aiosqlite:///./channelforge.db
+      CORS_ORIGINS: http://localhost:3000
+    volumes:
+      - ./backend:/app
+  web:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    environment:
+      BACKEND_URL: http://api:8000
+    depends_on:
+      - api
